@@ -1,6 +1,9 @@
+from functools import cache
+
 from lib.const import MAX_BATCH_SIZE, MAX_RECORD_SIZE, MAX_RECORDS_PER_BATCH
 
 
+@cache
 def string_byte_size(string: str, encoding="utf-8") -> int:
     return len(string.encode(encoding))
 
