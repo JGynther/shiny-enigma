@@ -78,6 +78,12 @@ def test_process_records():
     assert process_records(records) == expected_batches, "Test Case 11 failed"
     print("Test Case 11 passed: Non-ASCII character handling.")
 
+    # Case 12: Test a large number of records
+    records = ["small_record"] * 550_037
+    expected_batches = [records[:500]] * 1100 + [records[:37]]
+    assert process_records(records) == expected_batches, "Test Case 12 failed"
+    print("Test Case 12 passed:  Maximum number of records per batch.")
+
 
 if __name__ == "__main__":
     test_process_records()
